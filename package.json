@@ -4,7 +4,7 @@
   "description": "Atm",
   "main": "server.js",
   "scripts": {
-    "build": "node node_modules/.bin/gulp build-app",
+    "prestart": "node node_modules/.bin/gulp build-app",
     "start": "node server.js",
     "test": "npm run unit",
     "unit": "./node_modules/.bin/karma start --single-run --browsers Firefox",
