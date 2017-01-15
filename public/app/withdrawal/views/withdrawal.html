@@ -1,0 +1,25 @@
+<md-content class="md-padding" layout="row" flex>
+  <form name="withdrawalForm" ng-submit="vm.withdrawal(withdrawalForm.$valid)" novalidate flex>
+  <md-card flex>    
+    <md-card-title>
+      <md-card-title-text layout="row" layout-align="start center">
+        <span class="md-headline">Withdrawal</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>      
+      <md-input-container class="md-block">
+        <label>Withdrawal Value</label>
+        <input required name="withdrawalValue" ng-model="vm.withdrawalValue" type="number" min="2" step="2">
+        <div ng-messages="withdrawalForm.withdrawalValue.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>        
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">   
+      <md-button class="md-raised md-primary" type="submit">
+        Withdrawal
+      </md-button>
+    </md-card-actions>
+  </md-card>
+  </form>
+</md-content>
