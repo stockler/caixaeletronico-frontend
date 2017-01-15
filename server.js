@@ -13,6 +13,9 @@ app.set('trust proxy', 1) // trust first proxy
 app.use( session({
    secret : 'GSW_ATM!!@.@',
    name : 'sessionId',
+   proxy: true,
+   resave: true,
+   saveUninitialized: true
   })
 );
 
