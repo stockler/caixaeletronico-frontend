@@ -6,7 +6,7 @@
   .factory('AtmFactory', function($q, $http) {
     var Atm = {};
 
-    const URL = 'http://caixaeletronicotest.herokuapp.com/rest';
+    const URL = 'https://caixaeletronicotest.herokuapp.com/rest';
 
     Atm.withdrawal = function(value) {
     	let deferred = $q.defer();
