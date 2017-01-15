@@ -12,7 +12,7 @@ gulp.task('build-app', ['build-html'], function() {
     .src(gulpConfig.scripts.src)
     .pipe(concat(gulpConfig.scripts.output))
     .pipe(minifier(gulpConfig.uglify, uglifyjs))
-    .pipe(gzip(gulpConfig.gzip))
+    //.pipe(gzip(gulpConfig.gzip))
     .pipe(gulp.dest(gulpConfig.scripts.dest));
 });
 
