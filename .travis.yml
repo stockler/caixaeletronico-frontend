@@ -9,7 +9,7 @@ before_script:
 install:
   - npm install
 script:
-  - npm run build
+  - npm run prestart
 deploy:
   provider: heroku  
   app: caixaeletronico-frontend
