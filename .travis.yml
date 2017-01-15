@@ -9,7 +9,7 @@ before_script:
 install:
   - npm install
 script:
-  - gulp build-app
+  - npm run build
 deploy:
   provider: heroku  
   app: caixaeletronico-frontend
