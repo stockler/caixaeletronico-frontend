@@ -7,27 +7,38 @@
     var Atm = {};
 
     const URL = 'https://caixaeletronicotest.herokuapp.com/rest';
+    //const URL = 'http://localhost:10010/rest';
+
+    let deferred = $q.defer();
 
     Atm.withdrawal = function(value) {
-    	let deferred = $q.defer();
+    	if (deferred) {
+        deferred.reject("Abort");
+      }
+
+      deferred = $q.defer();
+
       $http.get(`${URL}/withdrawal/${value}`, {timeout: deferred.promise})
        .success(function(data) { 
           deferred.resolve(data);
        }).error(function(msg, code) {
           deferred.reject(msg);
-          $log.error(msg, code);
        });
      return deferred.promise;
     };
 
-    Atm.deposit = function(value) {
-      let deferred = $q.defer();
-      $http.post(`${URL}/deposit/${value}`, {timeout: deferred.promise})
+    Atm.deposit = function(data) {
+      if (deferred) {
+        deferred.reject("Abort");
+      }
+
+      deferred = $q.defer();
+
+      $http.post(`${URL}/deposit`, { body: data }, {timeout: deferred.promise})
        .success(function(data) { 
           deferred.resolve(data);
        }).error(function(msg, code) {
           deferred.reject(msg);
-          $log.error(msg, code);
        });
      return deferred.promise;
 
