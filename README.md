@@ -46,16 +46,16 @@ For end-to-end tests you need to start Selenium Server (webdriver) first and ser
 
 We need run in 3 terminals for run this test
 
-# update Selenium Server (webdriver)
+# update Selenium Server (webdriver) (terminal 1)
 npm run webdriver:update
 
 # start Selenium Server (webdriver) (terminal 1)
 npm run webdriver:start
 
 # start Server (express.js) (terminal 2)
-npm run webdriver:start
+npm start
 
-# run end-to-end test in another terminal (single run)
+# run end-to-end test in another terminal (terminal 3 - single run)
 npm run e2e
 ```
 
