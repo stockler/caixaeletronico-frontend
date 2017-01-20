@@ -25,23 +25,21 @@ export default class WithdrawalController {
   }
 
   withdrawal(isValid) {
-
-    const self = this;
-  	self.show = false;
-  	self.result = [];
+    
+  	this.show = false;
+  	this.result = [];
   	if (isValid) {
-  		console.log(self.withdrawalValue);
-	  	self.AtmFactory.withdrawal(self.withdrawalValue).then(function(response) {
-	  		console.log(response);
-	  		self.result = response.data;
-	  		self.show = true;
-	  		
-	  	})
-	  	.catch((err) => {
-	  		self.show = false;
-	  		self.result = [];
-	  		self.$mdToast.showSimple(err);
-	  	})
+	  	this.AtmFactory
+        .withdrawal(this.withdrawalValue)
+        .then((response) => {
+  	  		this.result = response.data;
+  	  		this.show = true;  	  		
+  	  	})
+  	  	.catch((err) => {
+  	  		this.show = false;
+  	  		this.result = [];
+  	  		this.$mdToast.showSimple(err.data);
+  	  	});
   	}
   	
   }
