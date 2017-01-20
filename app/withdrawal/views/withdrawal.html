@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout="column" flex>
-  <form name="withdrawalForm" ng-submit="vm.withdrawal(withdrawalForm.$valid)" novalidate flex ng-if="!vm.show" ng-init="vm.setForm(withdrawalForm)">
-  <md-card flex>    
+  <form name="withdrawalForm" ng-submit="vm.withdrawal(withdrawalForm.$valid)" novalidate flex ng-if="!vm.show">
+  <md-card flex ng-init="vm.setForm(withdrawalForm)">    
     <md-card-title>
       <md-card-title-text layout="row" layout-align="start center">
         <span class="md-headline">Withdrawal</span>

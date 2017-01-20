@@ -10,6 +10,7 @@ export default class WithdrawalController {
     this.show = false;
     this.result = [];
     this.withdrawalValue = null;
+    this.form = null;
   }
 
   setForm(form) {

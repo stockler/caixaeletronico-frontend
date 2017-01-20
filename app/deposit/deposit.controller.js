@@ -31,8 +31,8 @@ export default class DepositController {
 
 	  		let self = this;
 		  	this.AtmFactory.deposit(notes).then(function(msg) {
-		  		console.log(msg);
-		  		self.$mdToast.showSimple(msg);
+		  		console.log(msg.data);
+		  		self.$mdToast.showSimple(msg.data);
 		  		notes = {
 					100: 0,
 				  	50: 0,
