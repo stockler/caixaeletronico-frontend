@@ -4,7 +4,7 @@ exports.config = {
   framework: 'jasmine',
   suites: {
     app: 'test/e2e/app.spec.js',
-    shots: 'test/e2e/atm/atm.spec.js'
+    atm: 'test/e2e/atm/atm.spec.js'
   },
   capabilities: {
     browserName: 'chrome',

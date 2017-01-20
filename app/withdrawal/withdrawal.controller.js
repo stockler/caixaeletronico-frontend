@@ -1,44 +1,44 @@
-(function() {
-  'use strict';
+'use strict';
 
-angular
-  .module('withdrawal.widget')
-  .controller('WithdrawalController', WithdrawalController);
+export default class WithdrawalController {  
+  /*@ngInject*/
+  constructor(AtmFactory, $mdToast) {
 
-WithdrawalController.$inject = [ 'AtmFactory', '$mdToast' ];
+    this.AtmFactory = AtmFactory;
+    this.$mdToast = $mdToast;
 
-function WithdrawalController( AtmFactory, $mdToast ) {
-
-  var vm = this;
-
-  vm.show = false;
-
-  vm.reset = function() {
-  	vm.show = false;
-  	vm.result = [];
-  	vm.withdrawalValue = null;
+    this.show = false;
+    this.result = [];
+    this.withdrawalValue = null;
   }
 
-  vm.withdrawal = function(isValid) {
-  	vm.show = false;
-  	vm.result = [];
+  reset(form) {
+  	this.show = false;
+  	this.result = [];
+  	this.withdrawalValue = null;
+    form.$setPristine();
+  }
+
+  withdrawal(isValid) {
+
+    const self = this;
+  	self.show = false;
+  	self.result = [];
   	if (isValid) {
-  		console.log(vm.withdrawalValue);
-	  	AtmFactory.withdrawal(vm.withdrawalValue).then(function(response) {
+  		console.log(self.withdrawalValue);
+	  	self.AtmFactory.withdrawal(self.withdrawalValue).then(function(response) {
 	  		console.log(response);
-	  		vm.result = response;
-	  		vm.show = true;
+	  		self.result = response;
+	  		self.show = true;
 	  		
 	  	})
 	  	.catch((err) => {
-	  		vm.show = false;
-	  		vm.result = [];
-	  		$mdToast.showSimple(err);
+	  		self.show = false;
+	  		self.result = [];
+	  		self.$mdToast.showSimple(err);
 	  	})
   	}
   	
   }
 
 }
-
-})();

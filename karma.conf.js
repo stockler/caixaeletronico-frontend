@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['browserify', 'jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -21,10 +21,10 @@ module.exports = function(config) {
         './node_modules/angular-material/angular-material.js',                      
         './node_modules/angular-ui-router/release/angular-ui-router.js', 
         './node_modules/angular-mocks/angular-mocks.js',                 
-        './app/shots/shots.js',                                 
+        './app/atm/atm.factory.js',                                 
         './app/app.js', 
-        './test/unit/shots/shots.mocked.js',
-        './test/unit/shots/shots.spec.js'
+        './test/unit/atm/atm.mocked.js',
+        './test/unit/atm/atm.spec.js'
     ],
 
 
@@ -36,6 +36,30 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'app/**/!(*.spec|*.mock|*-mock|*.e2e|*.po|*.test).js': ['babel'],
+        'test/unit/**/*.spec.js': ['babel'],
+        'app/**/!(*.spec|*.mock|*-mock|*.e2e|*.po|*.test).js': ['browserify'],
+        'test/unit/**/*.spec.js': ['browserify']
+    },
+
+    browserify: {
+        debug: true,
+        transform: [
+            [
+                "babelify",
+                {
+                    presets: ["es2015"]
+                }
+            ]
+        ]
+    },
+
+    babelPreprocessor: {
+        options: {
+            presets: ["es2015"],
+            sourceMap: 'inline',
+            plugins: ["transform-es2015-modules-umd"]
+        }
     },
 
 

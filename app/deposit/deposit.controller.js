@@ -1,54 +1,69 @@
-(function() {
-  'use strict';
+'use strict';
 
-angular
-  .module('deposit.widget')
-  .controller('DepositController', DepositController);
+let notes = {
+	100: 0,
+	50: 0,
+	20: 0,
+	10: 0,
+	5: 0,
+	2: 0
+};
 
-DepositController.$inject = [ 'AtmFactory', '$mdToast' ];
+export default class DepositController {	
+	/*@ngInject*/
+	constructor(AtmFactory, $mdToast) {
 
-function DepositController( AtmFactory, $mdToast ) {
+		this.AtmFactory = AtmFactory;
+		this.$mdToast = $mdToast;
 
-  var vm = this;
+		this.depositValue = null;
+		this.note100 = null;
+		this.note50 = null;
+		this.note20 = null;
+		this.note10 = null;
+		this.note5 = null;
+		this.note2 = null;
+	}
 
-  let notes = {
-  	100: 0,
-  	50: 0,
-  	20: 0,
-  	10: 0,
-  	5: 0,
-  	2: 0
-  };
+  	deposit(form, isValid) {
+	  	if(isValid) {
+	  		console.log(this.depositValue);
 
-  vm.deposit = function(isValid) {
-  	if(isValid) {
-  		console.log(vm.depositValue);
-	  	AtmFactory.deposit(notes).then(function(msg) {
-	  		console.log(msg);
-	  		$mdToast.showSimple(msg);
-	  		notes = {
-				100: 0,
-			  	50: 0,
-			  	20: 0,
-			  	10: 0,
-			  	5: 0,
-			  	2: 0
-			};
-	  	});
-  	}  	
-  }
-
-  vm.calculate = function($event, value, note) {
-  	console.log(value, note);
-
-  	notes[note] = value;
-
-  	vm.depositValue = 0;
-  	for (let prop in notes) {
-  		vm.depositValue += parseInt(prop) * notes[prop];
+	  		let self = this;
+		  	this.AtmFactory.deposit(notes).then(function(msg) {
+		  		console.log(msg);
+		  		self.$mdToast.showSimple(msg);
+		  		notes = {
+					100: 0,
+				  	50: 0,
+				  	20: 0,
+				  	10: 0,
+				  	5: 0,
+				  	2: 0
+				};
+				self.depositValue = null;
+				self.note100 = null;
+				self.note50 = null;
+				self.note20 = null;
+				self.note10 = null;
+				self.note5 = null;
+				self.note2 = null;
+				form.$setPristine();
+		  	});
+	  	}  	
   	}
-  }
 
+  	calculate($event, value, note) {
+	  	console.log(value, note);
+
+	  	notes[note] = value;
+
+	  	this.depositValue = 0;
+	  	for (let prop in notes) {
+	  		this.depositValue += parseInt(prop) * notes[prop];
+	  	}
+  	}
 }
 
-})();
+
+

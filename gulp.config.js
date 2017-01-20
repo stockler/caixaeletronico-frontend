@@ -8,6 +8,7 @@ module.exports = {
     './app/run.js',
     './app/config.js',
     './app/atm/atm.js',
+    './app/**/*.module.js',
     './app/**/*.controller.js',
     './app/**/*.directive.js',
     './app/**/*.service.js',
@@ -16,7 +17,7 @@ module.exports = {
   ],
   uglify: {
     compress: true,
-    mangle: false,
+    mangle: true,
     preserveComments: 'license'
   },
   cssOptions: {
@@ -40,10 +41,11 @@ module.exports = {
       './app/app.js',
       './app/config.js',
       './app/run.js',
-      './app/atm/atm.js',
-      './app/**/*.app.js',
+      './app/atm/atm.js',  
+      './app/**/*.module.js',    
       './app/**/*.config.js',
       './app/**/*.controller.js',
+
       './app/**/*.directive.js',
       './app/**/*.factory.js',
       './app/**/*.service.js',

@@ -6,10 +6,10 @@
 #Quick start
 ```bash
 # clone the repo without git history
-git clone --depth 1 https://github.com/stockler/desafio.git
+git clone --depth 1 https://github.com/stockler/caixaeletronico-frontend.git
 
-# change current directory to desafio
-cd desafio
+# change current directory to caixaeletronico-frontend
+cd caixaeletronico-frontend
 
 # install dependencies
 npm install
@@ -57,7 +57,7 @@ npm run e2e
 #License
 The MIT License (MIT)
 
-Copyright (c) 2016 Rafael Stockler
+Copyright (c) 2017 Rafael Stockler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
