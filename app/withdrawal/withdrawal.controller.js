@@ -12,11 +12,15 @@ export default class WithdrawalController {
     this.withdrawalValue = null;
   }
 
-  reset(form) {
+  setForm(form) {
+    this.form = form;
+  }
+
+  reset() {
   	this.show = false;
   	this.result = [];
   	this.withdrawalValue = null;
-    form.$setPristine();
+    this.form.$setPristine();
   }
 
   withdrawal(isValid) {

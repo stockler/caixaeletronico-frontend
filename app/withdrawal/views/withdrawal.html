@@ -1,5 +1,5 @@
 <md-content class="md-padding" layout="column" flex>
-  <form name="withdrawalForm" ng-submit="vm.withdrawal(withdrawalForm.$valid)" novalidate flex ng-if="!vm.show">
+  <form name="withdrawalForm" ng-submit="vm.withdrawal(withdrawalForm.$valid)" novalidate flex ng-if="!vm.show" ng-init="setForm(withdrawalForm)">
   <md-card flex>    
     <md-card-title>
       <md-card-title-text layout="row" layout-align="start center">
@@ -43,7 +43,7 @@
       </ul>
     </md-card-content> 
     <md-card-actions layout="row" layout-align="start center">  
-      <md-button class="md-raised md-primary" ng-click="vm.reset(withdrawalForm)">
+      <md-button class="md-raised md-primary" ng-click="vm.reset()">
         New withdrawal
       </md-button>       
     </md-card-actions>
