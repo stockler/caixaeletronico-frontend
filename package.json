@@ -47,6 +47,7 @@
     "helmet": "^3.4.0",
     "karma-babel-preprocessor": "^6.0.1",
     "path": "^0.12.7",
+    "selenium-webdriver": "^3.0.1",
     "tiny-lr": "^1.0.3",
     "uglify-js-harmony": "^2.6.2",
     "vinyl-buffer": "^1.0.0",
@@ -69,6 +70,6 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "protractor": "^3.3.0"
+    "protractor": "~5.0.0"
   }
 }
