@@ -1,7 +1,7 @@
 'use strict';
 
-//const URL = 'https://caixaeletronicotest.herokuapp.com/rest';
-const URL = 'http://localhost:10010/rest';
+const URL = 'https://caixaeletronicotest.herokuapp.com/rest';
+//const URL = 'http://localhost:10010/rest';
 
 export default class AtmFactory {
   /*@ngInject*/

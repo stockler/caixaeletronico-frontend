@@ -1,5 +1,5 @@
 <md-content class="md-padding" layout="row" flex>
-  <form name="depositForm" ng-submit="vm.deposit(depositForm.$valid)" novalidate flex>
+  <form name="depositForm" ng-submit="vm.deposit(depositForm, depositForm.$valid)" novalidate flex>
   <md-card flex>    
     <md-card-title>
       <md-card-title-text layout="row" layout-align="start center">
@@ -19,7 +19,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 100 Reais</label>
-                    <input type="number" min="0" step="1" ng-model="vm.note100" ng-click="vm.calculate($event, vm.note100, 100)">
+                    <input type="number" min="0" step="1" ng-model="vm.note100" ng-click="vm.calculate($event, vm.note100, 100)" ng-keyup="vm.calculate($event, vm.note100, 100)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real100a.jpg" height="60px">
                   
@@ -31,7 +31,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 50 Reais</label>
-                    <input ng-model="vm.note50" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note50, 50)">
+                    <input ng-model="vm.note50" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note50, 50)" ng-keyup="vm.calculate($event, vm.note50, 50)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real050a.jpg" height="60px">
                   
@@ -43,7 +43,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 20 Reais</label>
-                    <input ng-model="vm.note20" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note20, 20)">
+                    <input ng-model="vm.note20" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note20, 20)" ng-keyup="vm.calculate($event, vm.note20, 20)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real020a.jpg" height="60px">
                   
@@ -55,7 +55,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 10 Reais</label>
-                    <input ng-model="vm.note10" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note10, 10)">
+                    <input ng-model="vm.note10" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note10, 10)" ng-keyup="vm.calculate($event, vm.note10, 10)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real010a.jpg" height="60px">
                   
@@ -67,7 +67,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 5 Reais</label>
-                    <input ng-model="vm.note5" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note5, 5)">
+                    <input ng-model="vm.note5" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note5, 5)" ng-keyup="vm.calculate($event, vm.note5, 5)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real005a.jpg" height="60px">
                   
@@ -79,7 +79,7 @@
                 <div>
                   <md-input-container>
                     <label>Quantity of R$ 2 Reais</label>
-                    <input ng-model="vm.note2" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note2, 2)">
+                    <input ng-model="vm.note2" type="number" min="0" step="1" ng-click="vm.calculate($event, vm.note2, 2)" ng-keyup="vm.calculate($event, vm.note2, 2)">
                   </md-input-container>
                   x <img ng-src="https://www.bcb.gov.br/htms/mecir/cedulas/real002a.jpg" height="60px">
                   
@@ -91,10 +91,17 @@
         </div>
       </md-input-container>        
     </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">   
-      <md-button class="md-raised md-primary" type="submit">
-        Deposit
-      </md-button>
+    <md-card-actions layout="row"> 
+      <div layout="row" layout-align="start center" flex>
+        <md-button class="md-raised md-link" ui-sref="atm">
+          Back
+        </md-button> 
+      </div>
+      <div layout="row" layout-align="end center" flex>
+        <md-button class="md-raised md-primary" type="submit" id="deposit">
+          Deposit
+        </md-button>
+      </div>
     </md-card-actions>
   </md-card>
   </form>
