@@ -91,10 +91,17 @@
         </div>
       </md-input-container>        
     </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">   
-      <md-button class="md-raised md-primary" type="submit">
-        Deposit
-      </md-button>
+    <md-card-actions layout="row"> 
+      <div layout="row" layout-align="start center" flex>
+        <md-button class="md-raised md-link" ui-sref="atm">
+          Back
+        </md-button> 
+      </div>
+      <div layout="row" layout-align="end center" flex>
+        <md-button class="md-raised md-primary" type="submit" id="deposit">
+          Deposit
+        </md-button>
+      </div>
     </md-card-actions>
   </md-card>
   </form>
