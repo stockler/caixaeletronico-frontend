@@ -28,7 +28,7 @@ export default class WithdrawalController {
   		console.log(self.withdrawalValue);
 	  	self.AtmFactory.withdrawal(self.withdrawalValue).then(function(response) {
 	  		console.log(response);
-	  		self.result = response;
+	  		self.result = response.data;
 	  		self.show = true;
 	  		
 	  	})
