@@ -41,13 +41,18 @@ npm run unit:watch
 ```
 
 ##End-to-End Testing
-For end-to-end tests you need to start Selenium Server (webdriver) first.
+For end-to-end tests you need to start Selenium Server (webdriver) first and server.
 ```bash
+
+We need run in 3 terminals for run this test
 
 # update Selenium Server (webdriver)
 npm run webdriver:update
 
-# start Selenium Server (webdriver)
+# start Selenium Server (webdriver) (terminal 1)
+npm run webdriver:start
+
+# start Server (express.js) (terminal 2)
 npm run webdriver:start
 
 # run end-to-end test in another terminal (single run)
